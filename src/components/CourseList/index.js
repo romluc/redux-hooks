@@ -1,16 +1,15 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import * as CourseAction from '../../store/actions/course';
 
 export default function CourseList() {
-	const courses = useSelector(state => state.data);
+	const courses = useSelector(state => state.course.data);
 	const dispatch = useDispatch();
 
-	function addCourseAction() {
-		return { type: 'ADD_COURSE', title: 'GraphQL' };
-	}
 	function addCourse() {
-		dispatch(addCourseAction('GraphQL'));
+		dispatch(CourseAction.addCourseAction(Math.random()));
 	}
+
 	return (
 		<>
 			<ul>
